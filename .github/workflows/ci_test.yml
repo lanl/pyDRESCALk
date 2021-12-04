@@ -35,9 +35,9 @@ jobs:
         run: |
           cd tests && timeout --preserve-status 1m mpirun -n 2 python -m pytest test_dist_clustering.py --with-mpi
 
-      - name: Test test_data_generator
-        run: |
-          cd tests && timeout --preserve-status 1m mpirun -n 4 python -m pytest test_data_generator.py --with-mpi
+      #- name: Test test_data_generator
+      #  run: |
+      #    cd tests && timeout --preserve-status 1m mpirun -n 4 python -m pytest test_data_generator.py --with-mpi
 
 
       - name: Test test_dist_file_split

@@ -9,7 +9,7 @@ import pytest
 
 
 @pytest.mark.mpi
-def main():
+def test_dist_file_split():
     comms = MPI.COMM_WORLD
 
     A = loadmat('../data/dnations.mat')['R']
@@ -32,5 +32,4 @@ def main():
         assert dtr_blk_shp == [7, 7]
 
 
-if __name__ == '__main__':
-    main()
+test_dist_file_split()

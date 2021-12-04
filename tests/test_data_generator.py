@@ -9,10 +9,10 @@ import pytest
 config.init(0)
 from pyDRESCALk.pyDRESCAL import *
 from pyDRESCALk.dist_comm import *
-
+from pyDRESCALk.utils import *
 
 @pytest.mark.mpi
-def main():
+def test_data_generator():
     np.random.seed(100)
     args = parser()
     args.p_r = 2
@@ -43,8 +43,7 @@ def main():
     assert np.allclose(A_row, A_row_broadcast)
 
 
-if __name__ == '__main__':
-    main()
+test_data_generator()
 
 
 

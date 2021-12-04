@@ -11,7 +11,7 @@ from pyDRESCALk.dist_comm import *
 
 
 @pytest.mark.mpi
-def main():
+def test_dist_rescal():
     np.random.seed(100)
     comm = MPI.COMM_WORLD
     m, k, n = 4, 2, 12
@@ -48,6 +48,4 @@ def main():
 
 
 
-
-if __name__ == '__main__':
-    main()
+test_dist_rescal()
