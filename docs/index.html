@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="Python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to pyDRESCALk&#39;s documentation! &mdash; pyDRESCALk 1.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyDRESCALk" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> pyDRESCALk
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">pyDRESCALk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pyDRESCALk</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Welcome to pyDRESCALk's documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-pydrescalk-s-documentation">
+<h1>Welcome to pyDRESCALk's documentation!<a class="headerlink" href="#welcome-to-pydrescalk-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>pyDRESCALk is a software package for applying non-negative RESCAL decomposition in a distributed fashion to large datasets. It can be utilized for decomposing relational datasets. It can minimize the difference between reconstructed data and the original data through Frobenius norm.  Additionally, the Custom Clustering algorithm allows for automated determination for the number of Latent features.</p>
+</div>
+<div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Ability to decompose relational datasets.</p></li>
+<li><p>Utilization of MPI4py for distributed operation.</p></li>
+<li><p>Distributed random initializations.</p></li>
+<li><p>Distributed Custom Clustering algorithm for estimating automated latent feature number (k) determination.</p></li>
+<li><p>Objective of minimization of Frobenius norm.</p></li>
+<li><p>Support for distributed CPUs/GPUs.</p></li>
+<li><p>Support for Dense/Sparse data.</p></li>
+<li><p>Demonstrated scaling performance upto 10TB of dense and 9Exabytes of Sparse data.</p></li>
+</ul>
+</div>
+<div class="section" id="scalability">
+<h1>Scalability<a class="headerlink" href="#scalability" title="Permalink to this headline">¶</a></h1>
+<p>pyDNMFk Scales from laptops to clusters. The library is convenient on a laptop. It can be installed easily  with conda or pip and extends the matrix decomposition from a single core to numerous cores across nodes.
+pyDNMFk is efficient and has been tested on powerful servers across LANL and Oakridge scaling beyond 1000+ nodes.
+This library facilitates the transition between single-machine to large scale cluster so as to enable users to both start simple and scale up when necessary.</p>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/lanl/pyDRESCALk.git</span>
+<span class="go">cd pyDRESCALk</span>
+<span class="go">conda create --name pyDRESCALk python=3.7.1 openmpi mpi4py</span>
+<span class="go">source activate pyDRESCALk</span>
+<span class="go">python setup.py install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-example">
+<h1>Usage Example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h1>
+<p>We provide a sample dataset that can be used for estimation of k:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Imports block&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pyDNMFk.config</span> <span class="k">as</span> <span class="nn">config</span>
+<span class="n">config</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyDNMFk.pyDNMFk</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyDNMFk.data_io</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyDNMFk.dist_comm</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parse</span><span class="p">()</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+<span class="n">p_r</span><span class="p">,</span> <span class="n">p_c</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">comms</span> <span class="o">=</span> <span class="n">MPI_comm</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="n">p_r</span><span class="p">,</span> <span class="n">p_c</span><span class="p">)</span>
+<span class="n">comm1</span> <span class="o">=</span> <span class="n">comms</span><span class="o">.</span><span class="n">comm</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">rank</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">size</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parse</span><span class="p">()</span>
+<span class="n">args</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">rank</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">comm</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">p_r</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">p_c</span> <span class="o">=</span> <span class="n">size</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">comms</span><span class="p">,</span> <span class="n">p_r</span><span class="p">,</span> <span class="n">p_c</span>
+<span class="n">args</span><span class="o">.</span><span class="n">row_comm</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">col_comm</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">comm1</span> <span class="o">=</span> <span class="n">comms</span><span class="o">.</span><span class="n">cart_1d_row</span><span class="p">(),</span> <span class="n">comms</span><span class="o">.</span><span class="n">cart_1d_column</span><span class="p">(),</span> <span class="n">comm1</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">comms</span><span class="o">.</span><span class="n">rank</span>
+<span class="n">args</span><span class="o">.</span><span class="n">fpath</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
+<span class="n">args</span><span class="o">.</span><span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;dnations&#39;</span>
+<span class="n">args</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="s1">&#39;mat&#39;</span>
+<span class="n">args</span><span class="o">.</span><span class="n">start_k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">args</span><span class="o">.</span><span class="n">end_k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">args</span><span class="o">.</span><span class="n">itr</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">args</span><span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;rand&#39;</span>
+<span class="n">args</span><span class="o">.</span><span class="n">noise_var</span> <span class="o">=</span> <span class="mf">0.005</span>
+<span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">args</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="s1">&#39;fro&#39;</span>
+<span class="n">args</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;mu&#39;</span>
+<span class="n">args</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="n">np</span>
+<span class="n">args</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+<span class="n">args</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
+<span class="n">A_ij</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">data_read</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">precision</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#Always make data of dimension mxnxn.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data dimension for rank=&#39;</span><span class="p">,</span><span class="n">rank</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="n">A_ij</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">args</span><span class="o">.</span><span class="n">results_path</span> <span class="o">=</span> <span class="s1">&#39;../Results/&#39;</span>
+<span class="n">pyDRESCALk</span><span class="p">(</span><span class="n">A_ij</span><span class="p">,</span> <span class="n">factors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">pyDRESCALk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyDRESCALk.html">pyDRESCALk package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>Indices and tables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-right" title="pyDRESCALk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Manish Bhattarai, Namita Kharat, Erik Skau, Duc Truong, Maksim Eren, Sanjay Rajopadhye, Hristo Djidjev, Boian Alexandrov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

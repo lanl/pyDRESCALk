@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="Python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyDRESCALk.dist_rescal &mdash; pyDRESCALk 1.0.0 documentation</title><link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyDRESCALk
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">pyDRESCALk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyDRESCALk</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>pyDRESCALk.dist_rescal</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyDRESCALk.dist_rescal</h1><div class="highlight"><pre>
+<span></span><span class="c1"># @author: Namita Kharat,Manish Bhattarai</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">matlib</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">config</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="rescal_algorithms_2D"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D">[docs]</a><span class="k">class</span> <span class="nc">rescal_algorithms_2D</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs the distributed RESCAL operation along 2D cartesian grid</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        X_ijk (ndarray) : Distributed Data</span>
+<span class="sd">        A_ij (ndarray) : Distributed factor A</span>
+<span class="sd">        R_ijk (ndarray) : Distributed factor R</span>
+<span class="sd">        params (class): Class which comprises following attributes</span>
+<span class="sd">        params.comm1 (object): Global Communicator</span>
+<span class="sd">        params.comm (object): Modified communicator object</span>
+<span class="sd">        params.k (int) : Rank for decomposition</span>
+<span class="sd">        params.m (int) : Global dimensions m</span>
+<span class="sd">        params.n (int) : Global dimensions n</span>
+<span class="sd">        params.p_r  (int): Cartesian grid row count</span>
+<span class="sd">        params.p_c  (int): Cartesian grid column count</span>
+<span class="sd">        params.row_comm (object) : Sub communicator along row</span>
+<span class="sd">        params.col_comm (object) : Sub communicator along columns</span>
+<span class="sd">        params.W_update (bool) : flag to set W update True/False</span>
+<span class="sd">        params.norm (str): NMF norm to be minimized</span>
+<span class="sd">        params.method(str): NMF optimization method</span>
+<span class="sd">        params.eps (float) : Epsilon value</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_ijk</span><span class="p">,</span> <span class="n">A_i</span><span class="p">,</span> <span class="n">A_j</span><span class="p">,</span> <span class="n">R_ijk</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">p_r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">p_c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">k</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comm1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">comm1</span>  <span class="c1"># [&#39;comm1&#39;]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_row</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_column</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">row_comm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">col_comm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">comm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_ijk</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span> <span class="o">=</span> <span class="n">X_ijk</span><span class="p">,</span> <span class="n">A_i</span><span class="p">,</span> <span class="n">A_j</span><span class="p">,</span> <span class="n">R_ijk</span>
+        <span class="c1">#if self.comm1.rank==0: print(X_ijk.shape,self.A_i.shape,self.A_j.shape,self.R_ijk.shape)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">eps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_r</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">p_c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">A_update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">A_update</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">norm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm1</span><span class="o">.</span><span class="n">rank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">local_A_n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">local_R_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">np</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">np</span>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.update"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs 1 step Update for factors W and H based on NMF method and corresponding norm minimization</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        W_ij : ndarray</span>
+<span class="sd">           The m/p X k distributed factor W</span>
+<span class="sd">        H_ij : ndarray</span>
+<span class="sd">           The k X n/p distributed factor H</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;FRO&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;MU&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Fro_MU_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_update</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Not a valid method: Choose (mu)&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Not a valid norm: Choose (fro)&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span></div>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.row_reduce"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_reduce">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">row_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">A</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs all reduce along row sub communicator&quot;&quot;&quot;</span>
+        <span class="n">A_TA_glob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_row</span><span class="o">.</span><span class="n">allreduce</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">MPI</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_row</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">A_TA_glob</span></div>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.column_reduce"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_reduce">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">column_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">A</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs all reduce along column sub communicator&quot;&quot;&quot;</span>
+        <span class="n">A_TA_glob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_column</span><span class="o">.</span><span class="n">allreduce</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">MPI</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_column</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">A_TA_glob</span></div>
+ 
+<div class="viewcode-block" id="rescal_algorithms_2D.row_broadcast"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_broadcast">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">row_broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">A</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs broadcast along row sub communicator&quot;&quot;&quot;</span>
+        <span class="n">A_broadcast</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_row</span><span class="o">.</span><span class="n">bcast</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_column</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_row</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">A_broadcast</span></div>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.column_broadcast"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_broadcast">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">column_broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">A</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs all reduce along column sub communicator&quot;&quot;&quot;</span>
+        <span class="n">A_column_broadcast</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_column</span><span class="o">.</span><span class="n">bcast</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_row</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cartesian1d_column</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">A_column_broadcast</span></div>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.matrix_mul"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.matrix_mul">[docs]</a>    <span class="nd">@count_memory</span><span class="p">()</span>
+    <span class="nd">@count_flops</span><span class="p">()</span>
+    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">matrix_mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Computes the matrix multiplication of matrix A and B&quot;&quot;&quot;</span>
+        <span class="n">AB_local</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span>
+        <span class="k">return</span> <span class="n">AB_local</span></div>
+    
+<div class="viewcode-block" id="rescal_algorithms_2D.gram_mul"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.gram_mul">[docs]</a>    <span class="nd">@count_memory</span><span class="p">()</span>
+    <span class="nd">@count_flops</span><span class="p">()</span>
+    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">gram_mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">A</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Computes the gram operation of matrix A&quot;&quot;&quot;</span>
+        <span class="n">A_TA_local</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="nd">@A</span>
+        <span class="k">return</span> <span class="n">A_TA_local</span></div>
+
+
+<div class="viewcode-block" id="rescal_algorithms_2D.global_gram"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.global_gram">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">global_gram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot; Distributed gram computation</span>
+
+<span class="sd">        Computes the global gram operation of matrix A</span>
+<span class="sd">        .. math:: A^TA</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A  :  ndarray</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        A_TA_glob  : ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">A_TA_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gram_mul</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="n">A_TA_glob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_reduce</span><span class="p">(</span><span class="n">A_TA_loc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">A_TA_glob</span></div>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.row_mm"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_mm">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">row_mm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot; Distributed matrix multiplication along row of matrix</span>
+
+<span class="sd">        Computes the matrix multiplication of matrix A and B along row sub communicator</span>
+<span class="sd">        .. math:: AB</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A  :  ndarray</span>
+<span class="sd">        B  :  ndarray</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        AB_glob  : ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">AB_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">AB_glob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_reduce</span><span class="p">(</span><span class="n">AB_loc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">AB_glob</span></div>
+    
+<div class="viewcode-block" id="rescal_algorithms_2D.column_mm"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_mm">[docs]</a>    <span class="nd">@comm_timing</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">column_mm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot; Distributed matrix multiplication along column of matrix</span>
+
+<span class="sd">        Computes the matrix multiplication of matrix A and B along column sub communicator</span>
+<span class="sd">        .. math:: AB</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A  :  ndarray</span>
+<span class="sd">        B  :  ndarray</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        AB_glob  : ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">AB_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">AB_glob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_reduce</span><span class="p">(</span><span class="n">AB_loc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">AB_glob</span></div>
+    
+<div class="viewcode-block" id="rescal_algorithms_2D.element_op"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.element_op">[docs]</a>    <span class="nd">@count_memory</span><span class="p">()</span>
+    <span class="nd">@count_flops</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">element_op</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">operation</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs Element operations between A and B&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;mul&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">A</span><span class="o">/</span><span class="n">B</span></div>
+
+<div class="viewcode-block" id="rescal_algorithms_2D.Fro_MU_update"><a class="viewcode-back" href="../../pyDRESCALk.html#pyDRESCALk.dist_rescal.rescal_algorithms_2D.Fro_MU_update">[docs]</a>    <span class="k">def</span> <span class="nf">Fro_MU_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A_update</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Frobenius norm based multiplicative update of A and R parameter</span>
+<span class="sd">        Function computes updated A and R parameter for each mpi rank</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        self : object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self.A_i : ndarray</span>
+<span class="sd">        self.R_ijk : ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">AtA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_gram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">)</span>    <span class="c1">#Internally Column reduce</span>
+        <span class="n">NumeratorA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">DenominatorA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Compute Rx&quot;&quot;&quot;</span>
+            <span class="c1">#print(self.X_ijk[x].shape,self.A_j.shape)</span>
+            <span class="n">XAj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_mm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_j</span><span class="p">)</span>  <span class="c1">#Internally row reduce</span>
+            <span class="n">AtXA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_mm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">XAj</span><span class="p">)</span>            
+            <span class="n">RAtA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">AtA</span><span class="p">)</span>
+            <span class="n">DenominatorR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">AtA</span><span class="p">,</span><span class="n">RAtA</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_op</span><span class="p">(</span><span class="n">AtXA</span><span class="p">,</span><span class="n">DenominatorR</span><span class="p">,</span><span class="s2">&quot;div&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_op</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">temp</span><span class="p">,</span> <span class="s2">&quot;mul&quot;</span><span class="p">)</span>
+
+            <span class="sd">&quot;&quot;&quot;Compute A&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_update</span><span class="p">:</span>
+                <span class="n">XARt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">XAj</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">AR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+                <span class="n">XtAR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_mm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">AR</span><span class="p">)</span>
+                <span class="n">XtAR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_broadcast</span><span class="p">(</span><span class="n">XtAR</span><span class="p">)</span>
+                <span class="n">NumeratorA</span> <span class="o">+=</span> <span class="n">XARt</span> <span class="o">+</span> <span class="n">XtAR</span>
+                <span class="n">AtAR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">AtA</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+                <span class="n">ARt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">ARtAtAR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">ARt</span><span class="p">,</span> <span class="n">AtAR</span><span class="p">)</span>
+                <span class="n">AtARt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">AtA</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">R_ijk</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">ARAtARt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix_mul</span><span class="p">(</span><span class="n">AR</span><span class="p">,</span><span class="n">AtARt</span><span class="p">)</span>
+                <span class="n">DenominatorA</span> <span class="o">+=</span> <span class="n">ARtAtAR</span> <span class="o">+</span> <span class="n">ARAtARt</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">A_update</span><span class="p">:</span>
+            <span class="n">tempA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_op</span><span class="p">(</span><span class="n">NumeratorA</span><span class="p">,</span><span class="n">DenominatorA</span><span class="p">,</span><span class="s2">&quot;div&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">A_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">element_op</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">,</span><span class="n">tempA</span><span class="p">,</span> <span class="s2">&quot;mul&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">A_j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_broadcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_i</span><span class="p">)</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Manish Bhattarai, Namita Kharat, Erik Skau, Duc Truong, Maksim Eren, Sanjay Rajopadhye, Hristo Djidjev, Boian Alexandrov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

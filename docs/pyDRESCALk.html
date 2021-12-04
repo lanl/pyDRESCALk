@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="Python" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyDRESCALk package &mdash; pyDRESCALk 1.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pyDRESCALk" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pyDRESCALk
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyDRESCALk</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pyDRESCALk package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.config">pyDRESCALk.config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.data_generator">pyDRESCALk.data_generator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.data_io">pyDRESCALk.data_io module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.dist_clustering">pyDRESCALk.dist_clustering module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.dist_comm">pyDRESCALk.dist_comm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.dist_rescal">pyDRESCALk.dist_rescal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.main">pyDRESCALk.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.plot_results">pyDRESCALk.plot_results module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.pyDRESCAL">pyDRESCALk.pyDRESCAL module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.pyDRESCALk">pyDRESCALk.pyDRESCALk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.utils">pyDRESCALk.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk.version">pyDRESCALk.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyDRESCALk">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyDRESCALk</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">pyDRESCALk</a> &raquo;</li>
+      <li>pyDRESCALk package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyDRESCALk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pydrescalk-package">
+<h1>pyDRESCALk package<a class="headerlink" href="#pydrescalk-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyDRESCALk.config">
+<span id="pydrescalk-config-module"></span><h2>pyDRESCALk.config module<a class="headerlink" href="#module-pyDRESCALk.config" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyDRESCALk.config.init">
+<code class="sig-prename descclassname">pyDRESCALk.config.</code><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param">arg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/config.html#init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.config.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global variables declaration here. The variables declared within this function in this file are shared across other files and functions during import.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.data_generator">
+<span id="pydrescalk-data-generator-module"></span><h2>pyDRESCALk.data_generator module<a class="headerlink" href="#module-pyDRESCALk.data_generator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.data_generator.data_generator">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.data_generator.</code><code class="sig-name descname">data_generator</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generates synthetic data in distributed manner where each MPI process generates a chunk from the data parallelly.
+The W matrix is generated with gaussian distribution whereas the H matrix is random.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>class</em>) -- Class which comprises following attributes</p></li>
+<li><p><strong>fpath</strong> (<em>str</em>) -- Directory path of file to be stored</p></li>
+<li><p><strong>p_r</strong> (<em>int</em>) -- Count of row processor in the cartesian grid</p></li>
+<li><p><strong>p_c</strong> (<em>int</em>) -- Count of column processor in the cartesian grid</p></li>
+<li><p><strong>m</strong> (<em>int</em>) -- row dimension of the data</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- Column dimension of the data</p></li>
+<li><p><strong>k</strong> (<em>int</em>) -- Feature count</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.create_folder_dir">
+<code class="sig-name descname">create_folder_dir</code><span class="sig-paren">(</span><em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.create_folder_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.create_folder_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a folder if doesn't exist</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.determine_block_index_range_asymm">
+<code class="sig-name descname">determine_block_index_range_asymm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.determine_block_index_range_asymm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.determine_block_index_range_asymm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the start and end indices for the Data block for each rank</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.determine_block_shape_asymm">
+<code class="sig-name descname">determine_block_shape_asymm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.determine_block_shape_asymm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.determine_block_shape_asymm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the shape for the Data block for each rank</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.dist_fromfunction">
+<code class="sig-name descname">dist_fromfunction</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">shape</em>, <em class="sig-param">pgrid</em>, <em class="sig-param">*args</em>, <em class="sig-param">unravel_index=&lt;function unravel_index&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.dist_fromfunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.dist_fromfunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>produces X_{i,j} = func(i,j) in a distributed manner, so that each processor has an array_split section of X according to the grid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates and save factors</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.gauss_matrix_generator">
+<code class="sig-name descname">gauss_matrix_generator</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">k</em>, <em class="sig-param">axis=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.gauss_matrix_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.gauss_matrix_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a matrix of dimensions n by k where the ith column is a Gaussian kernel corresponding to approximately N(i*n/k, 0.01*n^2)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) -- the ambient space dimension</p></li>
+<li><p><strong>k</strong> (<em>int</em>) -- the latent space diemnsion</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>W</strong> -- A matrix with Gaussian kernel columns of size n x k.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.generate_factors_data">
+<code class="sig-name descname">generate_factors_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.generate_factors_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.generate_factors_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the chunk of factors W,H and data X for each MPI process</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.random_matrix_generator">
+<code class="sig-name descname">random_matrix_generator</code><span class="sig-paren">(</span><em class="sig-param">k</em>, <em class="sig-param">n</em>, <em class="sig-param">seed</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.random_matrix_generator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.random_matrix_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator for random matric with given seed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.unravel_column">
+<code class="sig-name descname">unravel_column</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.unravel_column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.unravel_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds the column rank for 2d grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_generator.data_generator.unravel_row">
+<code class="sig-name descname">unravel_row</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#data_generator.unravel_row"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.data_generator.unravel_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds the row rank for 2d grid</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.data_generator.parser">
+<code class="sig-prename descclassname">pyDRESCALk.data_generator.</code><code class="sig-name descname">parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_generator.html#parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_generator.parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the input arguments from the user and parses the parameters to the data generator module.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.data_io">
+<span id="pydrescalk-data-io-module"></span><h2>pyDRESCALk.data_io module<a class="headerlink" href="#module-pyDRESCALk.data_io" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.data_io.data_read">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.data_io.</code><code class="sig-name descname">data_read</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for reading data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>class</em>) -- Class which comprises following attributes</p></li>
+<li><p><strong>fpath</strong> (<em>str</em>) -- Directory path of file to be read</p></li>
+<li><p><strong>pgrid</strong> (<em>tuple</em>) -- Cartesian grid configuration</p></li>
+<li><p><strong>ftype</strong> (<em>str</em>) -- Type of data to read(mat/npy/csv/folder)</p></li>
+<li><p><strong>fname</strong> (<em>str</em>) -- Name of the file to read</p></li>
+<li><p><strong>comm</strong> (<em>object</em>) -- comm object for distributed read</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.data_partition">
+<code class="sig-name descname">data_partition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.data_partition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.data_partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function divides the input matrix into chunks as specified by grid configuration.</p>
+<p>Return n array of shape (nrows_i, ncols_i) where i is the index of each chunk.
+Sum_i^n ( nrows_i * ncols_i )  = arr.size</p>
+<p>If arr is a 2D array, the returned array should look like n subblocks with
+each subblock preserving the &quot;physical&quot; layout of arr.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data read function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.read_dat">
+<code class="sig-name descname">read_dat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.read_dat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.read_dat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for reading the data and split into  chunks to be reach by each MPI rank</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.read_file_csv">
+<code class="sig-name descname">read_file_csv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.read_file_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.read_file_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>CSV data read function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.read_file_mat">
+<code class="sig-name descname">read_file_mat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.read_file_mat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.read_file_mat" title="Permalink to this definition">¶</a></dt>
+<dd><p>mat file read function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.read_file_npy">
+<code class="sig-name descname">read_file_npy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.read_file_npy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.read_file_npy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numpy data read function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.read_file_pickle">
+<code class="sig-name descname">read_file_pickle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.read_file_pickle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.read_file_pickle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_read.save_data_to_file">
+<code class="sig-name descname">save_data_to_file</code><span class="sig-paren">(</span><em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_read.save_data_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_read.save_data_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function saves the splitted data to numpy array indexed with chunk number</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.data_io.data_write">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.data_io.</code><code class="sig-name descname">data_write</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for writing data/results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>class</em>) -- class which comprises following attributes</p></li>
+<li><p><strong>results_path</strong> (<em>str</em>) -- Directory path of file to write</p></li>
+<li><p><strong>pgrid</strong> (<em>tuple</em>) -- Cartesian grid configuration</p></li>
+<li><p><strong>ftype</strong> (<em>str</em>) -- Type of data to read(mat/npy/csv/folder)</p></li>
+<li><p><strong>comm</strong> (<em>object</em>) -- comm object for distributed read</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_write.create_folder_dir">
+<code class="sig-name descname">create_folder_dir</code><span class="sig-paren">(</span><em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_write.create_folder_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_write.create_folder_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create directory if not present</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_write.save_cluster_results">
+<code class="sig-name descname">save_cluster_results</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_write.save_cluster_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_write.save_cluster_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save cluster results to a h5 file with rank 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.data_write.save_factors">
+<code class="sig-name descname">save_factors</code><span class="sig-paren">(</span><em class="sig-param">factors</em>, <em class="sig-param">reg=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#data_write.save_factors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.data_write.save_factors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the W and H factors for each MPI process</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.data_io.read_factors">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.data_io.</code><code class="sig-name descname">read_factors</code><span class="sig-paren">(</span><em class="sig-param">factors_path</em>, <em class="sig-param">pgrid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#read_factors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.read_factors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for reading saved factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>factors_path</strong> (<em>str</em>) -- Directory path of factors to read from</p></li>
+<li><p><strong>pgrid</strong> (<em>tuple</em>) -- Cartesian grid configuration</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.data_io.read_factors.custom_read_npy">
+<code class="sig-name descname">custom_read_npy</code><span class="sig-paren">(</span><em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#read_factors.custom_read_npy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.read_factors.custom_read_npy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read numpy files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.read_factors.load_factors">
+<code class="sig-name descname">load_factors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#read_factors.load_factors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.read_factors.load_factors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the final stacked factors for visualization</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.read_factors.read_factor">
+<code class="sig-name descname">read_factor</code><span class="sig-paren">(</span><em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#read_factors.read_factor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.read_factors.read_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read factors as chunks and stack them</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.data_io.split_files_save">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.data_io.</code><code class="sig-name descname">split_files_save</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">pgrid</em>, <em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#split_files_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.split_files_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Rank 0 based data read, split and save</p>
+<dl class="method">
+<dt id="pyDRESCALk.data_io.split_files_save.save_data_to_file">
+<code class="sig-name descname">save_data_to_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#split_files_save.save_data_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.split_files_save.save_data_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to save the chunks into numpy files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.data_io.split_files_save.split_files">
+<code class="sig-name descname">split_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/data_io.html#split_files_save.split_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.data_io.split_files_save.split_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the index range for each block and partition the data as per the chunk</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.dist_clustering">
+<span id="pydrescalk-dist-clustering-module"></span><h2>pyDRESCALk.dist_clustering module<a class="headerlink" href="#module-pyDRESCALk.dist_clustering" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.dist_clustering.</code><code class="sig-name descname">custom_clustering</code><span class="sig-paren">(</span><em class="sig-param">Wall</em>, <em class="sig-param">Hall</em>, <em class="sig-param">params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Greedy algorithm to approximate a quadratic assignment problem to cluster vectors. Given p groups of k vectors, construct k clusters, each cluster containing a single vector from each of the p groups. This clustering approximation uses cos distances and mean centroids.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A_all</strong> (<em>ndarray</em>) -- Order three tensor of shape m by k by p, where m is the ambient dimension of the vectors, k is the number of vectors in each group, and p is the number of groups of vectors.</p></li>
+<li><p><strong>R_all</strong> (<em>ndarray</em>) -- Order three tensor of shape n by k by p, where n is the ambient dimension of the vectors, k is the number of vectors in each group, and p is the number of groups of vectors.</p></li>
+<li><p><strong>params</strong> (<em>class</em>) -- Class object with communication parameters which comprises of grid information (p_r,p_c) , commincator (comm) and epsilon (eps).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.change_order">
+<code class="sig-name descname">change_order</code><span class="sig-paren">(</span><em class="sig-param">tens</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.change_order"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.change_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>change the order of features</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.dist_custom_clustering">
+<code class="sig-name descname">dist_custom_clustering</code><span class="sig-paren">(</span><em class="sig-param">centroids=None</em>, <em class="sig-param">vb=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.dist_custom_clustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.dist_custom_clustering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the distributed custom clustering</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>centroids</strong> (<em>ndarray</em><em>, </em><em>optional</em>) -- The m by k initialization of the centroids of the clusters. None corresponds to using the first slice, A_all[:,:,0], as the initial centroids. Defaults to None.</p></li>
+<li><p><strong>vb</strong> (<em>bool</em><em>, </em><em>optional</em>) -- Verbose to display intermediate results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>centroids</strong> (<em>ndarray</em>) -- The m by k centroids of the clusters</p></li>
+<li><p><strong>A_all</strong> (<em>ndarray</em>) -- Clustered organization of the vectors A_all</p></li>
+<li><p><strong>R_all</strong> (<em>ndarray</em>) -- Clustered organization of the vectors R_all</p></li>
+<li><p><strong>permute_order</strong> (<em>list</em>) -- Indices of the permuted features</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.dist_feature_ordering">
+<code class="sig-name descname">dist_feature_ordering</code><span class="sig-paren">(</span><em class="sig-param">centroids</em>, <em class="sig-param">W_sub</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.dist_feature_ordering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.dist_feature_ordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the features in proper order</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.dist_silhouettes">
+<code class="sig-name descname">dist_silhouettes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.dist_silhouettes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.dist_silhouettes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cosine distances silhouettes of a distributed clustering of vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sils</strong> -- The k by p array of silhouettes where sils[i,j] is the silhouette measure for the vector A_all[:,i,j]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the sub routines to perform distributed custom clustering and  compute silhouettes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>centroids</strong> (<em>ndarray</em>) -- The m by k centroids of the clusters</p></li>
+<li><p><strong>CentStd</strong> (<em>ndarray</em>) -- Absolute deviation of the features from the centroid</p></li>
+<li><p><strong>A_all</strong> (<em>ndarray</em>) -- Clustered organization of the vectors A_all</p></li>
+<li><p><strong>R_all</strong> (<em>ndarray</em>) -- Clustered organization of the vectors R_all</p></li>
+<li><p><strong>S_avg</strong> (<em>ndarray</em>) -- mean Silhouette score</p></li>
+<li><p><strong>permute_order</strong> (<em>list</em>) -- Indices of the permuted features</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.greedy_lsa">
+<code class="sig-name descname">greedy_lsa</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.greedy_lsa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.greedy_lsa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the permutation order</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.mad">
+<code class="sig-name descname">mad</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">flag=1</em>, <em class="sig-param">axis=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.mad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.mad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the median/mean absolute deviation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_clustering.custom_clustering.normalize_by_A">
+<code class="sig-name descname">normalize_by_A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_clustering.html#custom_clustering.normalize_by_A"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_clustering.custom_clustering.normalize_by_A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize the factors A and R</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.dist_comm">
+<span id="pydrescalk-dist-comm-module"></span><h2>pyDRESCALk.dist_comm module<a class="headerlink" href="#module-pyDRESCALk.dist_comm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.dist_comm.MPI_comm">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.dist_comm.</code><code class="sig-name descname">MPI_comm</code><span class="sig-paren">(</span><em class="sig-param">comm</em>, <em class="sig-param">p_r</em>, <em class="sig-param">p_c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_comm.html#MPI_comm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_comm.MPI_comm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Initialization of MPI communicator to construct the cartesian topology and sub communicators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>comm</strong> (<em>object</em>) -- MPI communicator object</p></li>
+<li><p><strong>p_r</strong> (<em>int</em>) -- row processors count</p></li>
+<li><p><strong>p_c</strong> (<em>int</em>) -- column processors count</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.dist_comm.MPI_comm.Free">
+<code class="sig-name descname">Free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_comm.html#MPI_comm.Free"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_comm.MPI_comm.Free" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frees the sub communicators</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_comm.MPI_comm.cart_1d_column">
+<code class="sig-name descname">cart_1d_column</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_comm.html#MPI_comm.cart_1d_column"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_comm.MPI_comm.cart_1d_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a cartesian column communicator through construction of a sub communicator across columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>cartesian1d_column</strong> -- Sub Communicator object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_comm.MPI_comm.cart_1d_row">
+<code class="sig-name descname">cart_1d_row</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_comm.html#MPI_comm.cart_1d_row"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_comm.MPI_comm.cart_1d_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a cartesian row communicator through construction of a sub communicator across rows</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>cartesian1d_row</strong> -- Sub Communicator object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.dist_rescal">
+<span id="pydrescalk-dist-rescal-module"></span><h2>pyDRESCALk.dist_rescal module<a class="headerlink" href="#module-pyDRESCALk.dist_rescal" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.dist_rescal.</code><code class="sig-name descname">rescal_algorithms_2D</code><span class="sig-paren">(</span><em class="sig-param">X_ijk</em>, <em class="sig-param">A_i</em>, <em class="sig-param">A_j</em>, <em class="sig-param">R_ijk</em>, <em class="sig-param">params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Performs the distributed RESCAL operation along 2D cartesian grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_ijk</strong> (<em>ndarray</em>) -- Distributed Data</p></li>
+<li><p><strong>A_ij</strong> (<em>ndarray</em>) -- Distributed factor A</p></li>
+<li><p><strong>R_ijk</strong> (<em>ndarray</em>) -- Distributed factor R</p></li>
+<li><p><strong>params</strong> (<em>class</em>) -- Class which comprises following attributes</p></li>
+<li><p><strong>params.comm1</strong> (<em>object</em>) -- Global Communicator</p></li>
+<li><p><strong>params.comm</strong> (<em>object</em>) -- Modified communicator object</p></li>
+<li><p><strong>params.k</strong> (<em>int</em>) -- Rank for decomposition</p></li>
+<li><p><strong>params.m</strong> (<em>int</em>) -- Global dimensions m</p></li>
+<li><p><strong>params.n</strong> (<em>int</em>) -- Global dimensions n</p></li>
+<li><p><strong>params.p_r</strong> (<em>int</em>) -- Cartesian grid row count</p></li>
+<li><p><strong>params.p_c</strong> (<em>int</em>) -- Cartesian grid column count</p></li>
+<li><p><strong>params.row_comm</strong> (<em>object</em>) -- Sub communicator along row</p></li>
+<li><p><strong>params.col_comm</strong> (<em>object</em>) -- Sub communicator along columns</p></li>
+<li><p><strong>params.W_update</strong> (<em>bool</em>) -- flag to set W update True/False</p></li>
+<li><p><strong>params.norm</strong> (<em>str</em>) -- NMF norm to be minimized</p></li>
+<li><p><strong>params.method</strong> (<em>str</em>) -- NMF optimization method</p></li>
+<li><p><strong>params.eps</strong> (<em>float</em>) -- Epsilon value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.Fro_MU_update">
+<code class="sig-name descname">Fro_MU_update</code><span class="sig-paren">(</span><em class="sig-param">A_update=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.Fro_MU_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.Fro_MU_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frobenius norm based multiplicative update of A and R parameter
+Function computes updated A and R parameter for each mpi rank</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<em>object</em>) -- </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>self.A_i</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>self.R_ijk</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_broadcast">
+<code class="sig-name descname">column_broadcast</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.column_broadcast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_broadcast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs all reduce along column sub communicator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_mm">
+<code class="sig-name descname">column_mm</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">B</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.column_mm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_mm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distributed matrix multiplication along column of matrix</p>
+<p>Computes the matrix multiplication of matrix A and B along column sub communicator
+.. math:: AB</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) -- </p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) -- </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>AB_glob</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_reduce">
+<code class="sig-name descname">column_reduce</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.column_reduce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.column_reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs all reduce along column sub communicator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.element_op">
+<code class="sig-name descname">element_op</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">B</em>, <em class="sig-param">operation</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.element_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.element_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs Element operations between A and B</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.global_gram">
+<code class="sig-name descname">global_gram</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.global_gram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.global_gram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distributed gram computation</p>
+<p>Computes the global gram operation of matrix A
+.. math:: A^TA</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>ndarray</em>) -- </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>A_TA_glob</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.gram_mul">
+<code class="sig-name descname">gram_mul</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.gram_mul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.gram_mul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the gram operation of matrix A</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.matrix_mul">
+<code class="sig-name descname">matrix_mul</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">B</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.matrix_mul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.matrix_mul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the matrix multiplication of matrix A and B</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_broadcast">
+<code class="sig-name descname">row_broadcast</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.row_broadcast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_broadcast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs broadcast along row sub communicator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_mm">
+<code class="sig-name descname">row_mm</code><span class="sig-paren">(</span><em class="sig-param">A</em>, <em class="sig-param">B</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.row_mm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_mm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distributed matrix multiplication along row of matrix</p>
+<p>Computes the matrix multiplication of matrix A and B along row sub communicator
+.. math:: AB</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) -- </p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) -- </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>AB_glob</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_reduce">
+<code class="sig-name descname">row_reduce</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.row_reduce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.row_reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs all reduce along row sub communicator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.dist_rescal.rescal_algorithms_2D.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/dist_rescal.html#rescal_algorithms_2D.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.dist_rescal.rescal_algorithms_2D.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs 1 step Update for factors W and H based on NMF method and corresponding norm minimization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>W_ij</strong> (<em>ndarray</em>) -- The m/p X k distributed factor W</p></li>
+<li><p><strong>H_ij</strong> (<em>ndarray</em>) -- The k X n/p distributed factor H</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.main">
+<span id="pydrescalk-main-module"></span><h2>pyDRESCALk.main module<a class="headerlink" href="#module-pyDRESCALk.main" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyDRESCALk.main.parser_pyRescal">
+<code class="sig-prename descclassname">pyDRESCALk.main.</code><code class="sig-name descname">parser_pyRescal</code><span class="sig-paren">(</span><em class="sig-param">parser</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/main.html#parser_pyRescal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.main.parser_pyRescal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.main.parser_pyRescalk">
+<code class="sig-prename descclassname">pyDRESCALk.main.</code><code class="sig-name descname">parser_pyRescalk</code><span class="sig-paren">(</span><em class="sig-param">parser</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/main.html#parser_pyRescalk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.main.parser_pyRescalk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.plot_results">
+<span id="pydrescalk-plot-results-module"></span><h2>pyDRESCALk.plot_results module<a class="headerlink" href="#module-pyDRESCALk.plot_results" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.box_plot">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">box_plot</code><span class="sig-paren">(</span><em class="sig-param">dat</em>, <em class="sig-param">respath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#box_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.box_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the boxplot from the given data and saves the results</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.plot_W">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">plot_W</code><span class="sig-paren">(</span><em class="sig-param">W</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#plot_W"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.plot_W" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a factor and plots into subplots for each component</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.plot_err">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">plot_err</code><span class="sig-paren">(</span><em class="sig-param">err</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#plot_err"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.plot_err" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the relative error for NMF decomposition as a function of number of iterations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.plot_results">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">plot_results</code><span class="sig-paren">(</span><em class="sig-param">startProcess</em>, <em class="sig-param">endProcess</em>, <em class="sig-param">stepProcess</em>, <em class="sig-param">RECON</em>, <em class="sig-param">SILL_AVG</em>, <em class="sig-param">SILL_MIN</em>, <em class="sig-param">out_put</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#plot_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.plot_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the relative error and Silhouette results for estimation of k</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.plot_results_paper">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">plot_results_paper</code><span class="sig-paren">(</span><em class="sig-param">startProcess</em>, <em class="sig-param">endProcess</em>, <em class="sig-param">stepProcess</em>, <em class="sig-param">RECON</em>, <em class="sig-param">SILL_AVG</em>, <em class="sig-param">SILL_MIN</em>, <em class="sig-param">out_put</em>, <em class="sig-param">name</em>, <em class="sig-param">k=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#plot_results_paper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.plot_results_paper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.plot_timing_stats">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">plot_timing_stats</code><span class="sig-paren">(</span><em class="sig-param">fpath</em>, <em class="sig-param">respath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#plot_timing_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.plot_timing_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the timing stats for the MPI operation.
+fpath: Stats data path
+respath: Path to save graph</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.read_plot_factors">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">read_plot_factors</code><span class="sig-paren">(</span><em class="sig-param">factors_path</em>, <em class="sig-param">pgrid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#read_plot_factors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.read_plot_factors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the factors W and H and Plots them</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.plot_results.timing_stats">
+<code class="sig-prename descclassname">pyDRESCALk.plot_results.</code><code class="sig-name descname">timing_stats</code><span class="sig-paren">(</span><em class="sig-param">fpath</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/plot_results.html#timing_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.plot_results.timing_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the timing stats dictionary from the stored file and parses the data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.pyDRESCAL">
+<span id="pydrescalk-pydrescal-module"></span><h2>pyDRESCALk.pyDRESCAL module<a class="headerlink" href="#module-pyDRESCALk.pyDRESCAL" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.pyDRESCAL.</code><code class="sig-name descname">pyDRESCAL</code><span class="sig-paren">(</span><em class="sig-param">X_ijk</em>, <em class="sig-param">factors=None</em>, <em class="sig-param">save_factors=False</em>, <em class="sig-param">params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Performs the distributed NMF decomposition of given matrix X into factors W and H</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A_ij</strong> (<em>ndarray</em>) -- Distributed Data</p></li>
+<li><p><strong>factors</strong> (<em>tuple</em>) -- Distributed factors W and H</p></li>
+<li><p><strong>params</strong> (<em>class</em>) -- Class which comprises following attributes</p></li>
+<li><p><strong>params.init</strong> (<em>str</em>) -- NMF initialization(rand/nnsvd)</p></li>
+<li><p><strong>params.comm1</strong> (<em>object</em>) -- Global Communicator</p></li>
+<li><p><strong>params.comm</strong> (<em>object</em>) -- Modified communicator object</p></li>
+<li><p><strong>params.k</strong> (<em>int</em>) -- Rank for decomposition</p></li>
+<li><p><strong>params.m</strong> (<em>int</em>) -- Global dimensions m</p></li>
+<li><p><strong>params.n</strong> (<em>int</em>) -- Global dimensions n</p></li>
+<li><p><strong>params.p_r</strong> (<em>int</em>) -- Cartesian grid row count</p></li>
+<li><p><strong>params.p_c</strong> (<em>int</em>) -- Cartesian grid column count</p></li>
+<li><p><strong>params.row_comm</strong> (<em>object</em>) -- Sub communicator along row</p></li>
+<li><p><strong>params.col_comm</strong> (<em>object</em>) -- Sub communicator along columns</p></li>
+<li><p><strong>params.W_update</strong> (<em>bool</em>) -- flag to set W update True/False</p></li>
+<li><p><strong>params.norm</strong> (<em>str</em>) -- NMF norm to be minimized</p></li>
+<li><p><strong>params.method</strong> (<em>str</em>) -- NMF optimization method</p></li>
+<li><p><strong>params.eps</strong> (<em>float</em>) -- Epsilon value</p></li>
+<li><p><strong>params.verbose</strong> (<em>bool</em>) -- Flag to enable/disable display results</p></li>
+<li><p><strong>params.save_factors</strong> (<em>bool</em>) -- Flag to enable/disable saving computed factors</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL.compute_global_dim">
+<code class="sig-name descname">compute_global_dim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL.compute_global_dim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL.compute_global_dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes global dimensions m and n from given chunk sizes for any grid configuration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL.dist_norm">
+<code class="sig-name descname">dist_norm</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">proc=-1</em>, <em class="sig-param">norm='fro'</em>, <em class="sig-param">axis=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL.dist_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL.dist_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the distributed norm</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the sub routines to perform distributed NMF decomposition with initialization for a given norm minimization and update method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>W_i</strong> (<em>ndarray</em>) -- Factor W of shape m/p_r * k</p></li>
+<li><p><strong>H_j</strong> (<em>ndarray</em>) -- Factor H of shape k * n/p_c</p></li>
+<li><p><strong>recon_err</strong> (<em>float</em>) -- Reconstruction error for NMF decomposition</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL.init_factors">
+<code class="sig-name descname">init_factors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL.init_factors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL.init_factors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes Rescal factors with rand/nnsvd method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL.normalize_features">
+<code class="sig-name descname">normalize_features</code><span class="sig-paren">(</span><em class="sig-param">Wall</em>, <em class="sig-param">Wall1</em>, <em class="sig-param">Hall</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL.normalize_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL.normalize_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalizes features Wall and Hall</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCAL.pyDRESCAL.relative_err">
+<code class="sig-name descname">relative_err</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCAL.html#pyDRESCAL.relative_err"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCAL.pyDRESCAL.relative_err" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the relative error for NMF decomposition</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.pyDRESCALk">
+<span id="pydrescalk-pydrescalk-module"></span><h2>pyDRESCALk.pyDRESCALk module<a class="headerlink" href="#module-pyDRESCALk.pyDRESCALk" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.pyDRESCALk.pyDRESCALk">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.pyDRESCALk.</code><code class="sig-name descname">pyDRESCALk</code><span class="sig-paren">(</span><em class="sig-param">X_ijk</em>, <em class="sig-param">factors=None</em>, <em class="sig-param">params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#pyDRESCALk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.pyDRESCALk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Performs the distributed RESCAL decomposition with custom clustering for estimating hidden factors k</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A_ij</strong> (<em>ndarray</em>) -- Distributed Data</p></li>
+<li><p><strong>factors</strong> (<em>tuple</em>) -- Distributed factors W and H</p></li>
+<li><p><strong>params</strong> (<em>class</em>) -- Class which comprises following attributes</p></li>
+<li><p><strong>params.init</strong> (<em>str</em>) -- RESCAL initialization(rand/nnsvd)</p></li>
+<li><p><strong>params.comm1</strong> (<em>object</em>) -- Global Communicator</p></li>
+<li><p><strong>params.comm</strong> (<em>object</em>) -- Modified communicator object</p></li>
+<li><p><strong>params.k</strong> (<em>int</em>) -- Rank for decomposition</p></li>
+<li><p><strong>params.m</strong> (<em>int</em>) -- Global dimensions m</p></li>
+<li><p><strong>params.n</strong> (<em>int</em>) -- Global dimensions n</p></li>
+<li><p><strong>params.p_r</strong> (<em>int</em>) -- Cartesian grid row count</p></li>
+<li><p><strong>params.p_c</strong> (<em>int</em>) -- Cartesian grid column count</p></li>
+<li><p><strong>params.row_comm</strong> (<em>object</em>) -- Sub communicator along row</p></li>
+<li><p><strong>params.col_comm</strong> (<em>object</em>) -- Sub communicator along columns</p></li>
+<li><p><strong>params.A_update</strong> (<em>bool</em>) -- flag to set W update True/False</p></li>
+<li><p><strong>params.norm</strong> (<em>str</em>) -- RESCAL norm to be minimized</p></li>
+<li><p><strong>params.method</strong> (<em>str</em>) -- RESCAL optimization method</p></li>
+<li><p><strong>params.eps</strong> (<em>float</em>) -- Epsilon value</p></li>
+<li><p><strong>params.verbose</strong> (<em>bool</em>) -- Flag to enable/disable display results</p></li>
+<li><p><strong>params.save_factors</strong> (<em>bool</em>) -- Flag to enable/disable saving computed factors</p></li>
+<li><p><strong>params.perturbations</strong> (<em>int</em>) -- Number of Perturbations for clustering</p></li>
+<li><p><strong>params.noise_var</strong> (<em>float</em>) -- Set noise variance for perturbing the data</p></li>
+<li><p><strong>params.sill_thr</strong> (<em>float</em>) -- Set the sillhouette threshold for estimating K with p-test</p></li>
+<li><p><strong>params.start_k</strong> (<em>int</em>) -- Starting range for Feature search K</p></li>
+<li><p><strong>params.end_k</strong> (<em>int</em>) -- Ending range for Feature search K</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCALk.pyDRESCALk.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#pyDRESCALk.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.pyDRESCALk.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the sub routines to perform distributed RESCAL decomposition and then custom clustering to estimate k</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>nopt</strong> -- Estimated value of latent features</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCALk.pyDRESCALk.pyrescalk_per_k">
+<code class="sig-name descname">pyrescalk_per_k</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#pyDRESCALk.pyrescalk_per_k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.pyDRESCALk.pyrescalk_per_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs RESCAL decomposition and clustering for each k to estimate silhouette statistics</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.pyDRESCALk.sample">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.pyDRESCALk.</code><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">noise_var</em>, <em class="sig-param">method</em>, <em class="sig-param">params</em>, <em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generates perturbed version of data based on sampling distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>ndarray</em><em>, </em><em>sparse matrix</em>) -- Array of which to find a perturbation.</p></li>
+<li><p><strong>noise_var</strong> (<em>float</em>) -- The perturbation amount.</p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- Method for sampling (uniform/poisson)</p></li>
+<li><p><strong>seed</strong> (<em>float</em>) -- Set seed for random data generation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCALk.sample.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#sample.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.sample.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the sub routines to perform resampling on data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>X_per</strong> -- Perturbed version of data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCALk.sample.poisson">
+<code class="sig-name descname">poisson</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#sample.poisson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.sample.poisson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resamples each element of a matrix from a Poisson distribution with the mean set by that element. Y_{i,j} = Poisson(X_{i,j}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.pyDRESCALk.sample.randM">
+<code class="sig-name descname">randM</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/pyDRESCALk.html#sample.randM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.pyDRESCALk.sample.randM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiplies each element of X by a uniform random number in (1-epsilon, 1+epsilon).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.utils">
+<span id="pydrescalk-utils-module"></span><h2>pyDRESCALk.utils module<a class="headerlink" href="#module-pyDRESCALk.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyDRESCALk.utils.comm_timing">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">comm_timing</code><a class="reference internal" href="_modules/pyDRESCALk/utils.html#comm_timing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.comm_timing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Decorator class for computing timing for MPI operations. The class uses the global
+variables flag and time initialized in config file and updates them for each call dynamically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flag</strong> (<em>bool</em>) -- if Set true, enables the decorator to compute the timings.</p></li>
+<li><p><strong>time</strong> (<em>dict</em>) -- Dictionary to store timing for each function calls</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.utils.count_flops">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">count_flops</code><a class="reference internal" href="_modules/pyDRESCALk/utils.html#count_flops"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.count_flops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.utils.count_memory">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">count_memory</code><a class="reference internal" href="_modules/pyDRESCALk/utils.html#count_memory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.count_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.utils.data_operations">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">data_operations</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Performs various operations on the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>ndarray</em>) -- Data to operate on</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.commonFactors">
+<code class="sig-name descname">commonFactors</code><span class="sig-paren">(</span><em class="sig-param">intList</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.commonFactors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.commonFactors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.cutZero">
+<code class="sig-name descname">cutZero</code><span class="sig-paren">(</span><em class="sig-param">thresh=1e-08</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.cutZero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.cutZero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prunes zero columns from the data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.desampleT">
+<code class="sig-name descname">desampleT</code><span class="sig-paren">(</span><em class="sig-param">factor</em>, <em class="sig-param">axis=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.desampleT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.desampleT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.matSplit">
+<code class="sig-name descname">matSplit</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">p_r</em>, <em class="sig-param">p_c</em>, <em class="sig-param">format='npy'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.matSplit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.matSplit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.primeFactors">
+<code class="sig-name descname">primeFactors</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.primeFactors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.primeFactors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.recZero">
+<code class="sig-name descname">recZero</code><span class="sig-paren">(</span><em class="sig-param">indexList</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.recZero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.recZero" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.data_operations.remove_bad_factors">
+<code class="sig-name descname">remove_bad_factors</code><span class="sig-paren">(</span><em class="sig-param">Wall</em>, <em class="sig-param">Hall</em>, <em class="sig-param">ErrTol</em>, <em class="sig-param">features_k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#data_operations.remove_bad_factors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.data_operations.remove_bad_factors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.utils.determine_block_params">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">determine_block_params</code><span class="sig-paren">(</span><em class="sig-param">comm</em>, <em class="sig-param">pgrid</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#determine_block_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.determine_block_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Computes the parameters  for each chunk to be read by MPI process</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>comm</strong> (<em>object</em>) -- MPI communicator object</p></li>
+<li><p><strong>pgrid</strong> (<em>tuple</em>) -- Cartesian grid configuration</p></li>
+<li><p><strong>shape</strong> (<em>tuple</em>) -- Data shape</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pyDRESCALk.utils.determine_block_params.determine_block_index_range_asymm">
+<code class="sig-name descname">determine_block_index_range_asymm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#determine_block_params.determine_block_index_range_asymm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.determine_block_params.determine_block_index_range_asymm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the start and end indices for the Data block for each rank</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.determine_block_params.determine_block_shape_asymm">
+<code class="sig-name descname">determine_block_shape_asymm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#determine_block_params.determine_block_shape_asymm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.determine_block_params.determine_block_shape_asymm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the shape for the Data block for each rank</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.utils.norm">
+<code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">norm</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">comm</em>, <em class="sig-param">norm=2</em>, <em class="sig-param">axis=None</em>, <em class="sig-param">p=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the data norm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em>) -- Data to operate on</p></li>
+<li><p><strong>comm</strong> (<em>object</em>) -- MPI communicator object</p></li>
+<li><p><strong>norm</strong> (<em>int</em>) -- type of norm to be computed</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) -- axis of array for the norm to be computed along</p></li>
+<li><p><strong>p</strong> (<em>int</em>) -- Processor count</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>norm</strong> -- Norm of the given data X</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.utils.parse">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">parse</code><a class="reference internal" href="_modules/pyDRESCALk/utils.html#parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Define a class parse which is used for adding attributes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.utils.str2bool">
+<code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">str2bool</code><span class="sig-paren">(</span><em class="sig-param">v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#str2bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.str2bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns instance of string parameter to bool type</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyDRESCALk.utils.transform_H_index">
+<em class="property">class </em><code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">transform_H_index</code><span class="sig-paren">(</span><em class="sig-param">grid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#transform_H_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.transform_H_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Collected H factors after MPI operation aren't aligned. This operation performs careful reordering of H factors
+such that the collected factors are aligned</p>
+<dl class="method">
+<dt id="pyDRESCALk.utils.transform_H_index.rankidx2blkidx">
+<code class="sig-name descname">rankidx2blkidx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#transform_H_index.rankidx2blkidx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.transform_H_index.rankidx2blkidx" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is to transform the column index to rank index for H</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyDRESCALk.utils.transform_H_index.transform_H_idx">
+<code class="sig-name descname">transform_H_idx</code><span class="sig-paren">(</span><em class="sig-param">rank</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#transform_H_index.transform_H_idx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.transform_H_index.transform_H_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is to transform H based on new index</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyDRESCALk.utils.var_init">
+<code class="sig-prename descclassname">pyDRESCALk.utils.</code><code class="sig-name descname">var_init</code><span class="sig-paren">(</span><em class="sig-param">clas</em>, <em class="sig-param">var</em>, <em class="sig-param">default</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyDRESCALk/utils.html#var_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyDRESCALk.utils.var_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if class attribute is present and if not, intializes the attribute with given default value</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyDRESCALk.version">
+<span id="pydrescalk-version-module"></span><h2>pyDRESCALk.version module<a class="headerlink" href="#module-pyDRESCALk.version" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyDRESCALk">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyDRESCALk" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="pyDRESCALk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Manish Bhattarai, Namita Kharat, Erik Skau, Duc Truong, Maksim Eren, Sanjay Rajopadhye, Hristo Djidjev, Boian Alexandrov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
