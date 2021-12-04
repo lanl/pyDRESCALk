@@ -1,4 +1,4 @@
-# [pyDRESCALk: Python Distributed Non Negative RESCAL with determination of hidden features](https://github.com/lanl/pyDNMFk)
+# [pyDRESCALk: Python Distributed Non Negative RESCAL with determination of hidden features](https://github.com/lanl/pyDRESCALk)
 
 
 <div align="center", style="font-size: 50px">
@@ -132,11 +132,11 @@ mpirun -n 4 python main.py --p_r=4 --p_c=1 --process='pyDRESCALk'  --fpath='data
 '''Imports block'''
 
 import sys
-import pyDNMFk.config as config
+import pyDRESCALk.config as config
 config.init(0)
-from pyDNMFk.pyDNMFk import *
-from pyDNMFk.data_io import *
-from pyDNMFk.dist_comm import *
+from pyDRESCALk.pyDRESCALk import *
+from pyDRESCALk.data_io import *
+from pyDRESCALk.dist_comm import *
 from scipy.io import loadmat
 from mpi4py import MPI
 comm = MPI.COMM_WORLD
@@ -201,12 +201,12 @@ operations for iii) strong and iv) weak scaling.
 ```latex
   @misc{pyDRESCALk,
   author = {Bhattarai, Manish and Nebgen, Ben and Skau, Erik and Eren, Maksim and Chennupati, Gopinath and Vangara, Raviteja and Djidjev, Hristo and Patchett, John and Ahrens, Jim and ALexandrov, Boian},
-  title = {pyDNMFk: Python Distributed Non Negative Matrix Factorization},
+  title = {pyDRESCALk: Python Distributed Non Negative Matrix Factorization},
   year = {2021},
   publisher = {GitHub},
   journal = {GitHub repository},
   doi = {10.5281/zenodo.4722448},
-  howpublished = {\url{https://github.com/lanl/pyDNMFk}}
+  howpublished = {\url{https://github.com/lanl/pyDRESCALk}}
 }
 
 

@@ -82,8 +82,8 @@
 </div>
 <div class="section" id="scalability">
 <h1>Scalability<a class="headerlink" href="#scalability" title="Permalink to this headline">¶</a></h1>
-<p>pyDNMFk Scales from laptops to clusters. The library is convenient on a laptop. It can be installed easily  with conda or pip and extends the matrix decomposition from a single core to numerous cores across nodes.
-pyDNMFk is efficient and has been tested on powerful servers across LANL and Oakridge scaling beyond 1000+ nodes.
+<p>pyDRESCALk Scales from laptops to clusters. The library is convenient on a laptop. It can be installed easily  with conda or pip and extends the matrix decomposition from a single core to numerous cores across nodes.
+pyDRESCALk is efficient and has been tested on powerful servers across LANL and Oakridge scaling beyond 1000+ nodes.
 This library facilitates the transition between single-machine to large scale cluster so as to enable users to both start simple and scale up when necessary.</p>
 </div>
 <div class="section" id="installation">
@@ -102,11 +102,11 @@ This library facilitates the transition between single-machine to large scale cl
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Imports block&#39;&#39;&#39;</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">pyDNMFk.config</span> <span class="k">as</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">pyDRESCALk.config</span> <span class="k">as</span> <span class="nn">config</span>
 <span class="n">config</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pyDNMFk.pyDNMFk</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">pyDNMFk.data_io</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">pyDNMFk.dist_comm</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyDRESCALk.pyDRESCALk</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyDRESCALk.data_io</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyDRESCALk.dist_comm</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
 <span class="kn">from</span> <span class="nn">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
 <span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>

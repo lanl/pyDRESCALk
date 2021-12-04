@@ -22,8 +22,8 @@ Features
 
 Scalability
 ========================
-pyDNMFk Scales from laptops to clusters. The library is convenient on a laptop. It can be installed easily  with conda or pip and extends the matrix decomposition from a single core to numerous cores across nodes.
-pyDNMFk is efficient and has been tested on powerful servers across LANL and Oakridge scaling beyond 1000+ nodes.
+pyDRESCALk Scales from laptops to clusters. The library is convenient on a laptop. It can be installed easily  with conda or pip and extends the matrix decomposition from a single core to numerous cores across nodes.
+pyDRESCALk is efficient and has been tested on powerful servers across LANL and Oakridge scaling beyond 1000+ nodes.
 This library facilitates the transition between single-machine to large scale cluster so as to enable users to both start simple and scale up when necessary.
 
 
@@ -48,11 +48,11 @@ We provide a sample dataset that can be used for estimation of k:
    '''Imports block'''
 
    import sys
-   import pyDNMFk.config as config
+   import pyDRESCALk.config as config
    config.init(0)
-   from pyDNMFk.pyDNMFk import *
-   from pyDNMFk.data_io import *
-   from pyDNMFk.dist_comm import *
+   from pyDRESCALk.pyDRESCALk import *
+   from pyDRESCALk.data_io import *
+   from pyDRESCALk.dist_comm import *
    from scipy.io import loadmat
    from mpi4py import MPI
    comm = MPI.COMM_WORLD
