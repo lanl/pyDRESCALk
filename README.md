@@ -199,18 +199,8 @@ operations for iii) strong and iv) weak scaling.
 ## How to cite pyDRESCALk?
 
 ```latex
-  @misc{pyDRESCALk,
-  author = {Bhattarai, Manish and Nebgen, Ben and Skau, Erik and Eren, Maksim and Chennupati, Gopinath and Vangara, Raviteja and Djidjev, Hristo and Patchett, John and Ahrens, Jim and ALexandrov, Boian},
-  title = {pyDRESCALk: Python Distributed Non Negative Matrix Factorization},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  doi = {10.5281/zenodo.4722448},
-  howpublished = {\url{https://github.com/lanl/pyDRESCALk}}
-}
 
-
-@software{manish_bhattarai_2021_5758446,
+@software{pyDRESCALk,
   author       = {Bhattarai, Manish and
                   Kharat, Namita and
                   Skau, Erik and
