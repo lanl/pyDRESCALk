@@ -3,7 +3,7 @@
 
 <div align="center", style="font-size: 50px">
 
-[![Build Status](https://github.com/lanl/pyDRESCALk/actions/workflows/ci_test.yml/badge.svg?branch=main)](https://github.com/lanl/pyDRESCALk/actions/workflows/ci_test.yml/badge.svg?branch=main) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg) [![Python Version](https://img.shields.io/badge/python-v3.7.1-blue)](https://img.shields.io/badge/python-v3.7.1-blue) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4722448-blue.svg)](https://doi.org/10.5281/zenodo.4722448)
+[![Build Status](https://github.com/lanl/pyDRESCALk/actions/workflows/ci_test.yml/badge.svg?branch=main)](https://github.com/lanl/pyDRESCALk/actions/workflows/ci_test.yml/badge.svg?branch=main) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg) [![Python Version](https://img.shields.io/badge/python-v3.7.1-blue)](https://img.shields.io/badge/python-v3.7.1-blue) [![DOI](https://zenodo.org/badge/434806925.svg)](https://zenodo.org/badge/latestdoi/434806925)
 
 </div>
 
@@ -200,14 +200,23 @@ operations for iii) strong and iv) weak scaling.
 ## How to cite pyDRESCALk?
 
 ```latex
-  @misc{pyDRESCALk,
-  author = {Bhattarai, Manish and Nebgen, Ben and Skau, Erik and Eren, Maksim and Chennupati, Gopinath and Vangara, Raviteja and Djidjev, Hristo and Patchett, John and Ahrens, Jim and ALexandrov, Boian},
-  title = {pyDRESCALk: Python Distributed Non Negative Matrix Factorization},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  doi = {10.5281/zenodo.4722448},
-  howpublished = {\url{https://github.com/lanl/pyDRESCALk}}
+
+@software{pyDRESCALk,
+  author       = {Bhattarai, Manish and
+                  Kharat, Namita and
+                  Skau, Erik and
+                  Truong, Duc and
+                  Eren, Maksim and
+                  Rajopadhye, Sanjay and
+                  Djidjev, Hristo and
+                  Alexandrov, Boian},
+  title        = {pyDRESCALk: Python Distributed Non Negative RESCAL decomposition with determination of latent features},
+  month        = dec,
+  year         = 2021,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.5758446},
+  url          = {https://doi.org/10.5281/zenodo.5758446}
 }
 
 
