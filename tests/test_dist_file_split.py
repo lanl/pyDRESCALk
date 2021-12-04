@@ -9,7 +9,7 @@ import pytest
 
 
 @pytest.mark.mpi
-def test_dist_file_split():
+def main():
     comms = MPI.COMM_WORLD
 
     A = loadmat('../data/dnations.mat')['R']
@@ -30,10 +30,6 @@ def test_dist_file_split():
     elif rank == 3:
         assert dtr_blk_idx == ([7, 7], [13, 13])
         assert dtr_blk_shp == [7, 7]
-
-
-def main():
-    test_dist_file_split()
 
 
 if __name__ == '__main__':

@@ -6,14 +6,13 @@ import os
 os.environ["OMP_NUM_THREADS"] = "1"
 import pyDRESCALk.config as config
 import pytest
-
 config.init(0)
 from pyDRESCALk.pyDRESCAL import *
 from pyDRESCALk.dist_comm import *
 
 
 @pytest.mark.mpi
-def test_data_generator():
+def main():
     np.random.seed(100)
     args = parser()
     args.p_r = 2
@@ -43,8 +42,9 @@ def test_data_generator():
     assert np.allclose(A_col, A_col_broadcast)
     assert np.allclose(A_row, A_row_broadcast)
 
-def main():
-    test_data_generator()
+
+if __name__ == '__main__':
+    main()
 
 
 

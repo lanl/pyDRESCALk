@@ -14,7 +14,7 @@ from pyDRESCALk.dist_comm import *
 
 
 @pytest.mark.mpi
-def test_dist_clustering():
+def main():
     import numpy as np
     np.random.seed(100)
     from mpi4py import MPI
@@ -60,4 +60,5 @@ def test_dist_clustering():
         assert np.allclose(sil, tmp2, rtol=1e-3, atol=1e-3)
 
 
-test_dist_clustering()
+if __name__ == '__main__':
+    main()
