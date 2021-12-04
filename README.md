@@ -88,7 +88,7 @@ mpirun -n <procs> python main.py [-h] [--process PROCESS] --p_r P_R --p_c P_C [-
                [--timing_stats TIMING_STATS] 
                [--precision PRECISION] [--perturbations PERTURBATIONS]
                [--noise_var NOISE_VAR] [--start_k START_K] [--end_k END_K]
-               [--step_k STEP_K]  [--sampling SAMPLING]
+               [--step_k STEP_K]  [--sampling SAMPLING] [--key KEY]
 
 
 arguments:
@@ -120,11 +120,12 @@ arguments:
   --end_k END_K         End index of K for RESCALk
   --step_k STEP_K       step for K search
   --sampling SAMPLING   Sampling noise for NMFk i.e uniform/poisson
+  --key KEY             Key for data if strored in dictionary. 
 ```
 
 **Example on running  pyDRESALk using [main.py](main.py):**
 ```bash
-mpirun -n 4 python main.py --p_r=4 --p_c=1 --process='pyDRESCALk'  --fpath='data/' --ftype='mat' --fname='dnations' --init='rand' --itr=5000 --norm='fro' --method='mu' --results_path='results/' --perturbations=20 --noise_var=0.015 --start_k=2 --end_k=5  --sampling='uniform'
+mpirun -n 4 python main.py --p_r=2 --p_c=2 --process='pyDRESCALk'  --fpath='data/' --ftype='mat' --fname='dnations' --init='rand' --itr=5000 --norm='fro' --method='mu' --results_path='results/' --perturbation=20 --noise_var=0.015 --start_k=2 --end_k=5  --sampling='uniform' --data_key='R'
 ```
 
 **Example estimation of k using the provided sample dataset:**

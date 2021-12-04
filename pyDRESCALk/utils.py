@@ -176,6 +176,19 @@ class data_operations():
             outCounter = outCounter & factorsList[curI]
         return (list(outCounter.elements()))
 
+def reorder_tensor(X,precision):
+    if type(X)== list:
+       m = len(X)
+       X =  np.stack([x.astype(precision) for x in X])
+       assert X[0].shape[0]==X[0].shape[0], f'X[0].shape[0] needs to equal X[0].shape[1]'
+
+    elif type(X) == np.ndarray:
+        shp = X.shape
+        if shp[0]==shp[1]:
+           X =  np.stack([x.astype(precision) for x in np.moveaxis(X,-1,0)])
+        elif shp[0]!=shp[1]:
+           X =  np.stack([x.astype(precision) for x in X])
+    return X
 
 class transform_H_index():
     """Collected H factors after MPI operation aren't aligned. This operation performs careful reordering of H factors

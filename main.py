@@ -19,7 +19,7 @@ from scipy.sparse import csr_matrix
 def parser_pyRescal(parser):
     parser.add_argument('--p_r', type=int, required=True, help='Now of row processors')
     parser.add_argument('--p_c', type=int, required=True, help='Now of column processors')
-    parser.add_argument('--k', type=int, required=True, help='feature count')
+    parser.add_argument('--k', type=int, required=False, help='feature count')
     parser.add_argument('--gpu', type=str2bool, default=False, help='Switch to turn on GPUs')
     parser.add_argument('--fpath', type=str, default='../Data/tmp/', help='data path to read(eg: tmp/)')
     parser.add_argument('--ftype', type=str, default='npy', help='data type : mat/folder/h5')
@@ -31,6 +31,8 @@ def parser_pyRescal(parser):
     parser.add_argument('--verbose', type=str2bool, default=True)
     parser.add_argument('--results_path', type=str, default='Results/', help='Path for saving results')
     parser.add_argument('--precision', type=str, default='float32', help='Precision of the data(float32/float64/float16).')
+    parser.add_argument('--key', type=str, default='X',
+                        help='Key for the data if stored in dictionary for mat/npy file')
     return parser
 
 
@@ -79,21 +81,18 @@ if __name__ == '__main__':
         gpu_id = rank % gpu_ct
         xp.cuda.device.Device(gpu_id).use()
     '''Data read block'''
-    args.precision = args.np.float32
 
     if rank == 0: print('Reading data now')
-    A_ij = data_read(args).read()
+    X_ij = data_read(args).read()
+    X_ij = reorder_tensor(X_ij,args.precision)
     if rank == 0: print('Reading data complete')
-
-    X_ijk = np.stack([i.astype('float32') for i in A_ij],axis=0)
-    if comm.rank==0:print(X_ijk[0].dtype,X_ijk[0].shape)
-    '''NMF/NMFk block'''
-    if args.process == 'pyRescalk':
-        if main_comm.rank == 0: print('Starting PyRescalk...')
-        nopt = pyDRESCALk(X_ijk, factors=None, params=args).fit()
-        if main_comm.rank == 0: print('PyRescalk done.')
-    elif args.process == 'pyRescal':
-        if main_comm.rank == 0: print('Starting PyRescal...', X_ijk.shape)
-        nopt = pyDRESCAL(X_ijk, factors=None, params=args).fit()
-        if main_comm.rank == 0: print('PyRescal done.')
+    '''pyDRESCAL/pyDRESCALk block'''
+    if args.process == 'pyDRESCALk':
+        if main_comm.rank == 0: print('Starting pyDRESCALk...')
+        pyDRESCALk(X_ij, factors=None, params=args).fit()
+        if main_comm.rank == 0: print('pyDRESCALk done.')
+    elif args.process == 'pyDRESCAL':
+        if main_comm.rank == 0: print('Starting pyDRESCAL...')
+        pyDRESCAL(X_ij, factors=None, params=args).fit()
+        if main_comm.rank == 0: print('pyDRESCAL done.')
 
