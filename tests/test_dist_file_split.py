@@ -2,7 +2,7 @@ import sys
 import os
 
 os.environ["OMP_NUM_THREADS"] = "1"
-from pyDNMFk.utils import *
+from pyDRESCALk.utils import *
 from mpi4py import MPI
 from scipy.io import loadmat
 import pytest
