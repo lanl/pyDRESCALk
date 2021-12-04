@@ -210,6 +210,25 @@ operations for iii) strong and iv) weak scaling.
 }
 
 
+@software{manish_bhattarai_2021_5758446,
+  author       = {Bhattarai, Manish and
+                  Kharat, Namita and
+                  Skau, Erik and
+                  Truong, Duc and
+                  Eren, Maksim and
+                  Rajopadhye, Sanjay and
+                  Djidjev, Hristo and
+                  Alexandrov, Boian},
+  title        = {pyDRESCALk: Python Distributed Non Negative RESCAL decomposition with determination of latent features},
+  month        = dec,
+  year         = 2021,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.5758446},
+  url          = {https://doi.org/10.5281/zenodo.5758446}
+}
+
+
 @article{vangara2021finding,
   title={Finding the Number of Latent Topics With Semantic Non-Negative Matrix Factorization},
   author={Vangara, Raviteja and Bhattarai, Manish and Skau, Erik and Chennupati, Gopinath and Djidjev, Hristo and Tierney, Tom and Smith, James P and Stanev, Valentin G and Alexandrov, Boian S},
