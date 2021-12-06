@@ -7,10 +7,6 @@
 
 </div>
 
-<p align="center">
-  <img width="160" height="200" src="./docs/RD100.png">
-</p>
-
 
 <br>
 
