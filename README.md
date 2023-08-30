@@ -216,15 +216,16 @@ operations for iii) strong and iv) weak scaling.
 }
 
 
-@article{vangara2021finding,
-  title={Finding the Number of Latent Topics With Semantic Non-Negative Matrix Factorization},
-  author={Vangara, Raviteja and Bhattarai, Manish and Skau, Erik and Chennupati, Gopinath and Djidjev, Hristo and Tierney, Tom and Smith, James P and Stanev, Valentin G and Alexandrov, Boian S},
-  journal={IEEE Access},
-  volume={9},
-  pages={117217--117231},
-  year={2021},
-  publisher={IEEE}
+@article{bhattarai2023distributed,
+  title={Distributed non-negative rescal with automatic model selection for exascale data},
+  author={Bhattarai, Manish and Boureima, Ismael and Skau, Erik and Nebgen, Benjamin and Djidjev, Hristo and Rajopadhye, Sanjay and Smith, James P and Alexandrov, Boian and others},
+  journal={Journal of Parallel and Distributed Computing},
+  volume={179},
+  pages={104709},
+  year={2023},
+  publisher={Elsevier}
 }
+
 
 
 ```
